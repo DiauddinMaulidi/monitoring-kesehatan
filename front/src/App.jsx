@@ -4,7 +4,6 @@ import Thermometer from "./components/Thermometer";
 import { HeartBeat } from "./components/Heartbeat";
 import Gauge from "./components/Gauge";
 import Gauge2 from "./components/Gauge2";
-import Liquid from "./components/Liquid";
 
 function App() {
   const [data, setData] = useState({
@@ -21,7 +20,7 @@ function App() {
   useEffect(() => {
     intervalId.current = setInterval(() => {
       getData();
-    }, 1000);
+    }, 500);
     return () => {
       clearInterval(intervalId.current);
     };
@@ -64,14 +63,6 @@ function App() {
           <div className="mt-10 font-bold text-center">
             <HeartBeat />
             <h2 className="text-white text-xl">80 bpm</h2>
-          </div>
-        </div>
-        <div className="shadow-xl border-2 w-60 p-5 bg-gradient-to-br from-indigo-400 from-20% to-pink-300 rounded-lg">
-          <div className="text-center font-bold text-white">
-            <p>Kadar Oksigen</p>
-          </div>
-          <div className="mt-10 font-bold text-center">
-            <Liquid value={data.bodyTemperature} />
           </div>
         </div>
       </div>
