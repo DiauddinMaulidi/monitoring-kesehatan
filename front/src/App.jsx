@@ -12,7 +12,7 @@ function App() {
   const intervalId = useRef(null);
 
   const getData = () => {
-    fetch("http://localhost:8000/suhu")
+    fetch("http://localhost:8000/data")
       .then((res) => res.json())
       .then((data) => setData(data));
   };
@@ -62,7 +62,7 @@ function App() {
           </div>
           <div className="mt-10 font-bold text-center">
             <HeartBeat />
-            <h2 className="text-white text-xl">80 bpm</h2>
+            <h2 className="text-white text-xl">{data.myBpm} BPM</h2>
           </div>
         </div>
       </div>
